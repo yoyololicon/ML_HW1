@@ -30,13 +30,11 @@ if __name__ == '__main__':
         w = np.flip(w, 0)
         p = np.poly1d(w)
 
-        #print w, np.polyfit(train_x, train_t, order)
-
         train_y = p(train_x)
         test_y = p(test_x)
 
-        train_elist.append(np.sqrt(np.sum((train_y - train_t) ** 2) / len(train_t)))
-        test_elist.append(np.sqrt(np.sum((test_y - test_t) ** 2) / len(test_t)))
+        train_elist.append(np.sqrt(np.mean((train_y - train_t) ** 2)))
+        test_elist.append(np.sqrt(np.mean((test_y - test_t) ** 2)))
 
     x1 = lnl.tolist()
     plt.plot(x1, train_elist)

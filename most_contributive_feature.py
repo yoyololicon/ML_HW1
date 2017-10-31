@@ -1,6 +1,6 @@
 import numpy as np
 import scipy.io as io
-import Poly_regress
+import poly_regression
 
 feature = ['sepal length', 'sepal width', 'petal length', 'petal width']
 
@@ -13,13 +13,13 @@ if __name__ == '__main__':
 
     error_list = []
     for i in range(4):
-        trans_train_x = Poly_regress.transform(np.delete(train_x, i, 1), 3, 2)
+        trans_train_x = poly_regression.transform(np.delete(train_x, i, 1), 3, 2)
 
-        w = Poly_regress.getCoef(trans_train_x, train_t)
+        w = poly_regression.getCoef(trans_train_x, train_t)
 
         train_y = np.dot(trans_train_x, w)
 
-        error_list.append(Poly_regress.RMSE(train_y, train_t))
+        error_list.append(poly_regression.RMSE(train_y, train_t))
         print 'The RMS error after remove feature <<', feature[i], '>> is', error_list[len(error_list)-1]
 
     print 'The most contributive attribute is', feature[error_list.index(max(error_list))]

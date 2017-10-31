@@ -59,7 +59,6 @@ if __name__ == '__main__':
     print 'For M = 2:'
     print 'Training error is', train_error2, ", testing error is", test_error2
 
-    #test_trans = poly.fit_transform(test_x)
 
     plt.plot(test_y1, 'r')
     plt.plot(test_y2)

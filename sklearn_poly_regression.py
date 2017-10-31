@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import scipy.io as io
-import Poly_regress
+import poly_regression
 from sklearn.preprocessing import PolynomialFeatures
 from sklearn.linear_model import LinearRegression
 
@@ -27,8 +27,8 @@ if __name__ == '__main__':
     train_y1 = lg1.predict(trans_train_x)
     test_y1 = lg1.predict(trans_test_x)
 
-    train_error1 = Poly_regress.RMSE(train_y1, train_t)
-    test_error1 = Poly_regress.RMSE(test_y1, test_t)
+    train_error1 = poly_regression.RMSE(train_y1, train_t)
+    test_error1 = poly_regression.RMSE(test_y1, test_t)
     print 'For M = 1:'
     print 'Training error is', train_error1, ", testing error is", test_error1
 
@@ -45,12 +45,10 @@ if __name__ == '__main__':
     train_y2 = lg2.predict(trans_train_x)
     test_y2 = lg2.predict(trans_test_x)
 
-    train_error2 = Poly_regress.RMSE(train_y2, train_t)
-    test_error2 = Poly_regress.RMSE(test_y2, test_t)
+    train_error2 = poly_regression.RMSE(train_y2, train_t)
+    test_error2 = poly_regression.RMSE(test_y2, test_t)
     print 'For M = 2:'
     print 'Training error is', train_error2, ", testing error is", test_error2
-
-    #test_trans = poly.fit_transform(test_x)
 
     plt.plot(test_y1, 'r')
     plt.plot(test_y2)
